@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #07111F;
+    color: #F8FAFC;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07111F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C3150;
+  border-radius: 9999px;
+  border: 2px solid #07111F;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2F80ED;
+}
+
+/* Subtle Data Grid Background */
+.bg-data-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(47, 128, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(47, 128, 237, 0.05) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(34, 211, 238, 0.12) 1px, transparent 1px);
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(11, 27, 46, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(28, 49, 80, 0.85);
+}
+
+.glass-card:hover {
+  border-color: rgba(47, 128, 237, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(7, 17, 31, 0.8), 0 0 20px -5px rgba(47, 128, 237, 0.2);
+}
+
+.glass-nav {
+  background: rgba(7, 17, 31, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Smooth Circular Rotating Text Keyframe */
+@keyframes circularRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-circular-text {
+  animation: circularRotate 28s linear infinite;
+  transform-origin: 250px 250px;
+  transform-box: fill-box;
+}
+
+.animate-circular-text-reverse {
+  animation: circularRotate 34s linear infinite reverse;
+  transform-origin: 250px 250px;
+  transform-box: fill-box;
+}
+
+/* Glowing Border Gradients */
+.border-gradient-blue {
+  border-image: linear-gradient(to right, #2F80ED, #22D3EE) 1;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-circular-text,
+  .animate-circular-text-reverse,
+  .animate-spin-slow,
+  .animate-float,
+  .animate-pulse-subtle {
+    animation: none !important;
+  }
+}
